@@ -14,21 +14,29 @@ page('*', notfound);
 page();
 
 function index() {
-  $('p').text('viewing index');
-  console.log('Index function called.');
+  hideAndSeek('main');
 }
 
 function about() {
-  $('p').text('viewing about');
-  console.log('About function called.');
+  hideAndSeek('about');
 }
 
 function contact(ctx) {
-  $('p').text('viewing contact ' + (ctx.params.contactName || ''));
+  hideAndSeek('contact');
+  // $('p').text('viewing contact ' + (ctx.params.contactName || ''));
   console.log('Contact function called.');
 }
 
 function notfound() {
-  $('p').text('selection not found');
+  // $('p').text('selection not found');
   console.log('NotFound function called.');
 }
+
+function hideAndSeek(tag) {
+  $('article').hide();
+  $('#' + tag).show();
+}
+
+$(function(){
+  hideAndSeek('main');
+});
