@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  text-align: right;
+  height: 5%;
+  width: 100%;
+}
+
+nav div {
+  color: white;
+  font-size: 20px;
+  margin:20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+article {
+  padding: 2%;
+}

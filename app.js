@@ -23,7 +23,8 @@ function about() {
 
 function contact(ctx) {
   hideAndSeek('contact');
-  // $('p').text('viewing contact ' + (ctx.params.contactName || ''));
+  console.log(ctx.params.contactName);
+  $('h3').html('Contact: ' + (ctx.params.contactName || 'None'));
   console.log('Contact function called.');
 }
 
