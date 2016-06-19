@@ -3,8 +3,6 @@ body {
   padding: 0;
 }
 
-
-
 nav {
   background-color: black;
   display: flex;
@@ -26,6 +24,14 @@ nav a {
   color: white;
 }
 
-article {
+section {
+  display: none;
   padding: 2%;
+}
+
+article {
+  margin: 2%;
+  padding: 1%;
+  background-color: #ccc;
+  border: 1px solid #999;
 }
