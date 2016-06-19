@@ -1,3 +1,7 @@
+console.log(window.location.href);
+console.log(window.location.hostname);
+console.log(window.location.pathname);
+
 // the "notfound" implements a catch-all
 // with page('*', notfound). Here we have
 // no catch-all, so page.js will redirect
@@ -11,10 +15,11 @@ page('articles', articles);
 page('about', about);
 page('contact', contact);
 page('contact/:contactName', contact);
-page('*', notfound);
+page('*', notFound);
 page();
 
-function index() {
+function index(ctx) {
+  console.log(ctx);
   showSection('home');
 }
 
@@ -28,14 +33,11 @@ function about() {
 
 function contact(ctx) {
   showSection('contact');
-  console.log(ctx.params.contactName);
   $('h3').html('Contact: ' + (ctx.params.contactName || 'None'));
-  console.log('Contact function called.');
 }
 
-function notfound() {
-  // $('p').text('selection not found');
-  console.log('NotFound function called.');
+function notFound() {
+  showSection('notFound');
 }
 
 function showSection(tag) {
