@@ -1,25 +1,20 @@
-console.log(window.location.href);
-console.log(window.location.hostname);
-console.log(window.location.pathname);
-
 // the "notfound" implements a catch-all
 // with page('*', notfound). Here we have
 // no catch-all, so page.js will redirect
 // to the location of paths which do not
 // match any of the following routes
 //
-page.base('/');
+page.base('');
 
-page('', index);
-page('articles', articles);
-page('about', about);
-page('contact', contact);
-page('contact/:contactName', contact);
+page('/', index);
+page('/articles', articles);
+page('/about', about);
+page('/contact', contact);
+page('/contact/:contactName', contact);
 page('*', notFound);
 page();
 
 function index(ctx) {
-  console.log(ctx);
   showSection('home');
 }
 
