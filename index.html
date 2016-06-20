@@ -2,50 +2,73 @@
 <html>
   <head>
     <title>Basic</title>
-    <script src="/page.js"></script>
-    <base href="/basic/" >
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="vendor/styles/default.css">
+    <link rel="stylesheet" href="vendor/styles/railscasts.css">
+    <link rel="stylesheet" href="/css/base.css">
   </head>
   <body>
-    <h1>Basic</h1>
-    <p></p>
-    <ul>
-      <li><a href="./">/</a></li>
-      <li><a href="#whoop">#whoop</a></li>
-      <li><a href="./about">/about</a></li>
-      <li><a href="./contact">/contact</a></li>
-      <li><a href="./contact/me">/contact/me</a></li>
-      <li><a href="./not-found?foo=bar">/not-found</a></li>
-    </ul>
-
-    <script>
-      // the "notfound" implements a catch-all
-      // with page('*', notfound). Here we have
-      // no catch-all, so page.js will redirect
-      // to the location of paths which do not
-      // match any of the following routes
-      //
-      page.base('/basic');
-
-      page('/', index);
-      page('/about', about);
-      page('/contact', contact);
-      page('/contact/:contactName', contact);
-      page();
-
-      function index() {
-        document.querySelector('p')
-          .textContent = 'viewing index';
-      }
-
-      function about() {
-        document.querySelector('p')
-          .textContent = 'viewing about';
-      }
-
-      function contact(ctx) {
-        document.querySelector('p')
-          .textContent = 'viewing contact ' + (ctx.params.contactName || '');
-      }
-    </script>
+    <nav>
+      <div id="logo"><a href="/">Basic page.js example</a></div>
+      <div><a href="/">Home</a></div>
+      <div><a href="/articles">Articles</a></div>
+      <div><a href="/about">About</a></div>
+      <div><a href="/contact">Contact</a></div>
+      <div><a href="/contact/me">Contact > me</a></div>
+      <div><a href="/not-found?foo=bar">"Not Found" Example</a></div>
+    </nav>
+    <section id="home">
+      <h1>This Is the Home Page</h1>
+      <p>
+        There is nothing interesting on this page. You probably are looking for the Articles page. Click "Articles" in the nav bar above.
+      </p>
+    </section>
+    <section id="articles"></section>
+    <section id="about">
+      <h1>About This Site</h1>
+      <p>
+        This is a homework assignment to prepare for combining routes with templates and AJAX.
+      </p>
+    </section>
+    <section id="contact">
+      <h1>Contact Page</h1>
+      <h3></h3>
+      <p>
+        All forms of contact are listed on my homepage: <a href="http://www.geoffreyemerson.com">www.geoffreyemerson.com</a>
+      </p>
+    </section>
+    <section id="notFound">
+      <h1>I think you took a wrong turn!</h1>
+      <div>
+        <!-- <iframe width="853" height="480" src="https://www.youtube.com/embed/kMI_HBO5FOM?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe> -->
+        <iframe width="840" height="630" src="https://www.youtube.com/embed/TSXXi2kvl_0?rel=0&amp;showinfo=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
   </body>
+
+  <!-- Load Libraries -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <!-- <script type="text/javascript" src="/vendor/page.js"></script> -->
+  <script type="text/javascript" src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+  <script type="text/javascript" src="/vendor/marked.js"></script>
+  <script type="text/javascript" src="/vendor/highlight.pack.js"></script>
+
+  <!-- Define html template -->
+  <script id="handlebarsTemplate" type="text/x-handlebars-template">
+    <article>
+      <h1 class="templateTitle">{{title}}</h1>
+    <div class="templateBody">{{{body}}}</div>
+    </article>
+  </script>
+
+  <!-- Load custom scripts -->
+  <script type="text/javascript" src="/js/article.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+
+  <!-- Run scripts -->
+  <script type="text/javascript">
+    Article.loadArticles();
+  </script>
+
 </html>

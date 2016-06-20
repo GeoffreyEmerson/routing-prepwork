@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row;
+  text-align: right;
+  height: 5%;
+  width: 100%;
+}
+
+nav div {
+  color: white;
+  font-size: 20px;
+  margin:20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  display: none;
+  padding: 2%;
+}
+
+article {
+  margin: 2%;
+  padding: 1%;
+  background-color: #ccc;
+  border: 1px solid #999;
+}
+
+#notFound div {
+  width: 100%;
+  text-align: center;
+}
